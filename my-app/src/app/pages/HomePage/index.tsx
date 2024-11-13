@@ -1,3 +1,4 @@
+import TodoInput from 'app/components/TodoInput';
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components';
@@ -18,14 +19,19 @@ const Box = styled.div`
   border-radius: 30px;
   box-shadow: 0 25px 100px -60px rgba(0, 0, 0, 0.18);
 `;
+const TitleBox = styled.div`
+  width: 40%;
+  margin: 10px;
+  border-radius: 30px;
+  background-color: #2a66ff;
+`;
 
 const Title = styled.h1`
   margin: 0;
-  padding: 15px 25px;
+  padding: 15px 20px;
   font-size: 24px;
   font-weight: 700;
-  /* background-color: #0055ff;
-  color: #fff; */
+  color: #fff;
 `;
 
 const TodoList = styled.div``;
@@ -52,7 +58,11 @@ export function HomePage() {
       </Helmet>
       <Wrapper>
         <Box>
-          <Title>To do List</Title>
+          <TitleBox>
+            {' '}
+            <Title>To do List</Title>
+          </TitleBox>
+          <TodoInput />
           <TodoList>
             <TodoItem>
               <TodoCheck type="checkbox" />
