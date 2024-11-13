@@ -1,7 +1,9 @@
-import TodoInput from 'app/components/TodoInput';
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components';
+
+import TodoInput from 'app/components/TodoInput';
+import TodoItem from 'app/components/TodoItem';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -36,15 +38,6 @@ const Title = styled.h1`
 
 const TodoList = styled.div``;
 
-const TodoItem = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 25px;
-  font-size: 1.2em;
-  border-bottom: 1px solid #f0f0f0;
-`;
 const TodoCheck = styled.input`
   margin-right: 15px;
 `;
@@ -64,21 +57,14 @@ export function HomePage() {
           </TitleBox>
           <TodoInput />
           <TodoList>
-            <TodoItem>
-              <TodoCheck type="checkbox" />
-              <span>하재민</span>
-              <button>Done</button>
-            </TodoItem>
-            <TodoItem>
-              <TodoCheck type="checkbox" />
-              <span>뭘봐</span>
-              <button>Done</button>
-            </TodoItem>
-            <TodoItem>
-              <TodoCheck type="checkbox" />
-              <span>흥</span>
-              <button>Done</button>
-            </TodoItem>
+            <TodoItem
+              todo={{
+                id: 1,
+                edited: false,
+                content: '프로젝트 생성하기',
+                complete: true,
+              }}
+            ></TodoItem>
           </TodoList>
         </Box>
       </Wrapper>

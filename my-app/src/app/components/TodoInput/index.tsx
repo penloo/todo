@@ -19,7 +19,7 @@ const Input = styled.input`
 export default function TodoInput() {
   return (
     <Box>
-      <Input />
+      <Input placeholder="할일을 입력하거라" />
     </Box>
   );
 }
