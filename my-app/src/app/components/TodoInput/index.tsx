@@ -16,10 +16,31 @@ const Input = styled.input`
   outline: 0;
 `;
 
-export default function TodoInput() {
+export default function TodoInput({
+  setTodoList2,
+}: {
+  setTodoList2: (todo: ITodoItem) => void;
+}) {
+  const [content, setContent] = React.useState<string>('');
+
   return (
     <Box>
-      <Input placeholder="할일을 입력하거라" />
+      <Input
+        value={content}
+        placeholder="할일을 입력하거라"
+        onChange={e => setContent(e.target.value)}
+        onKeyDown={e => {
+          if (content === '') return;
+          if (e.key !== 'Enter' && e.key !== 'NumpadEnter') return;
+          setTodoList2({
+            id: new Date().getTime().toString(),
+            edited: false,
+            content: content,
+            complete: false,
+          });
+          setContent('');
+        }}
+      />
     </Box>
   );
 }
